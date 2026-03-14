@@ -1,0 +1,112 @@
+package ua.stetsenkoinna.CourseWork;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Locale;
+import java.util.Queue;
+import ua.stetsenkoinna.PetriObj.PetriP;
+
+public class VerifyModel {
+
+    public static void main(String[] args) throws Exception {
+        double simulationTime = 700000.0;
+        double logInterval = 100.0;
+
+        // Таблиця А.1 - Набори параметрів
+        // Індекси наборів:                  0     1     2     3     4
+        final double[] crusherUnload20t = { 5.0, 10.0,  5.0,  5.0,  5.0 };
+        final double[] crusherUnload50t = { 4.0,  8.0,  4.0,  4.0,  4.0 };
+        final double[] excavatorLoad20t = { 5.0,  5.0,  2.5,  5.0,  5.0 };
+        final int[] extraTrucks50t =      {   0,    0,    0,    1,    0 };
+        final int[] priority50t =         {   1,    1,    1,    1,    0 };
+
+        int numRunsPerSet = 5; // 5 прогонів для кожного набору, як у Панченка
+
+        System.out.println("Starting Deep Verification (5 Sets x 5 Runs = 25 total runs)...");
+
+        for (int setIdx = 0; setIdx < crusherUnload20t.length; setIdx++) {
+            String setDirName = "Set_" + setIdx + "/";
+            File setDir = new File(setDirName);
+            if (!setDir.exists()) setDir.mkdir();
+
+            System.out.println("Processing Parameter Set " + setIdx + "...");
+
+            for (int run = 1; run <= numRunsPerSet; run++) {
+                String runDirName = setDirName + "Run_" + run + "/";
+                File runDir = new File(runDirName);
+                if (!runDir.exists()) runDir.mkdir();
+
+                // Ініціалізація мережі з параметрами поточного набору
+                ExcavatorCrusherNet systemNet = new ExcavatorCrusherNet(
+                        crusherUnload20t[setIdx], crusherUnload50t[setIdx], 
+                        excavatorLoad20t[setIdx], extraTrucks50t[setIdx], priority50t[setIdx]
+                );
+
+                CourseWorkPetriSim sim = new CourseWorkPetriSim(systemNet.net);
+
+                // Запуск і логування
+                runAndLog(sim, systemNet, runDirName, simulationTime, logInterval);
+            }
+        }
+        System.out.println("All 25 runs completed successfully!");
+    }
+
+    private static void runAndLog(CourseWorkPetriSim sim, ExcavatorCrusherNet systemNet, String dirName, double simulationTime, double logInterval) {
+        @SuppressWarnings("unchecked")
+        Queue<Double>[] waitQueues = new Queue[6];
+        int[] prevMarks = new int[6];
+        for (int i = 0; i < 6; i++) {
+            waitQueues[i] = new LinkedList<>();
+            prevMarks[i] = 0;
+        }
+
+        try (PrintWriter statsWriter = new PrintWriter(new FileWriter(dirName + "simulation_stats.csv"));
+             PrintWriter waitWriter = new PrintWriter(new FileWriter(dirName + "wait_times.csv"))) {
+
+            statsWriter.println("Time,Crusher Utilization,Average Crusher Queue,Excavator 1 Utilization,Excavator 1 Average Queue");
+            waitWriter.println("Time,TruckType,WaitTime");
+
+            double[] nextLogTime = { logInterval };
+
+            sim.go(simulationTime, (time) -> {
+                // Відстеження індивідуального часу очікування (FIFO гістограми)
+                for (int i = 0; i < 6; i++) {
+                    int currentMark = systemNet.waitCrusherPlaces.get(i).getMark();
+                    if (currentMark > prevMarks[i]) {
+                        for (int j = 0; j < currentMark - prevMarks[i]; j++) waitQueues[i].add(time);
+                    } else if (currentMark < prevMarks[i]) {
+                        for (int j = 0; j < prevMarks[i] - currentMark; j++) {
+                            if (!waitQueues[i].isEmpty()) {
+                                double arrivalTime = waitQueues[i].poll();
+                                double waitTime = time - arrivalTime;
+                                int truckType = (i % 2 == 0) ? 20 : 50;
+                                waitWriter.printf(Locale.US, "%.2f,%d,%.4f%n", time, truckType, waitTime);
+                            }
+                        }
+                    }
+                    prevMarks[i] = currentMark;
+                }
+
+                // Збір статистики кожні 100 одиниць часу
+                if (time >= nextLogTime[0]) {
+                    double crusherUtil = 1.0 - systemNet.freeCrusher.getMean();
+                    double crusherQueue = 0.0;
+                    for (PetriP p : systemNet.waitCrusherPlaces) crusherQueue += p.getMean();
+
+                    double exc1Util = 1.0 - systemNet.freeExcavators.get(0).getMean();
+                    double exc1Queue = systemNet.waitExcavatorPlaces.get(0).getMean() + systemNet.waitExcavatorPlaces.get(1).getMean();
+
+                    statsWriter.printf(Locale.US, "%.2f,%.4f,%.4f,%.4f,%.4f%n",
+                            time, crusherUtil, crusherQueue, exc1Util, exc1Queue);
+                    nextLogTime[0] += logInterval;
+                }
+            });
+
+        } catch (IOException e) {
+            System.err.println("Error writing to CSV: " + e.getMessage());
+        }
+    }
+}
