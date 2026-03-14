@@ -66,7 +66,11 @@ public class VerifyModel {
         try (PrintWriter statsWriter = new PrintWriter(new FileWriter(dirName + "simulation_stats.csv"));
              PrintWriter waitWriter = new PrintWriter(new FileWriter(dirName + "wait_times.csv"))) {
 
-            statsWriter.println("Time,Crusher Utilization,Average Crusher Queue,Excavator 1 Utilization,Excavator 1 Average Queue");
+            // Додано колонки для всіх екскаваторів
+            statsWriter.println("Time,Crusher Utilization,Average Crusher Queue," +
+                    "Excavator 1 Utilization,Excavator 1 Average Queue," +
+                    "Excavator 2 Utilization,Excavator 2 Average Queue," +
+                    "Excavator 3 Utilization,Excavator 3 Average Queue");
             waitWriter.println("Time,TruckType,WaitTime");
 
             double[] nextLogTime = { logInterval };
@@ -90,17 +94,32 @@ public class VerifyModel {
                     prevMarks[i] = currentMark;
                 }
 
-                // Збір статистики кожні 100 одиниць часу
+                // Збір статистики кожні logInterval одиниць часу
                 if (time >= nextLogTime[0]) {
+                    // Дробівка
                     double crusherUtil = 1.0 - systemNet.freeCrusher.getMean();
                     double crusherQueue = 0.0;
                     for (PetriP p : systemNet.waitCrusherPlaces) crusherQueue += p.getMean();
 
+                    // Екскаватор 1 (Індекси черг: 0 та 1)
                     double exc1Util = 1.0 - systemNet.freeExcavators.get(0).getMean();
                     double exc1Queue = systemNet.waitExcavatorPlaces.get(0).getMean() + systemNet.waitExcavatorPlaces.get(1).getMean();
 
-                    statsWriter.printf(Locale.US, "%.2f,%.4f,%.4f,%.4f,%.4f%n",
-                            time, crusherUtil, crusherQueue, exc1Util, exc1Queue);
+                    // Екскаватор 2 (Індекси черг: 2 та 3)
+                    double exc2Util = 1.0 - systemNet.freeExcavators.get(1).getMean();
+                    double exc2Queue = systemNet.waitExcavatorPlaces.get(2).getMean() + systemNet.waitExcavatorPlaces.get(3).getMean();
+
+                    // Екскаватор 3 (Індекси черг: 4 та 5)
+                    double exc3Util = 1.0 - systemNet.freeExcavators.get(2).getMean();
+                    double exc3Queue = systemNet.waitExcavatorPlaces.get(4).getMean() + systemNet.waitExcavatorPlaces.get(5).getMean();
+
+                    // Запис розширеного рядка статистики
+                    statsWriter.printf(Locale.US, "%.2f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f%n",
+                            time, crusherUtil, crusherQueue, 
+                            exc1Util, exc1Queue, 
+                            exc2Util, exc2Queue, 
+                            exc3Util, exc3Queue);
+                    
                     nextLogTime[0] += logInterval;
                 }
             });
