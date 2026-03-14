@@ -5,120 +5,138 @@ from scipy.stats import expon, chi2
 import matplotlib
 import os
 import warnings
+from tabulate import tabulate
 
 # Вимикаємо попередження pandas для чистоти консолі
 warnings.filterwarnings('ignore')
 
-# --- Налаштування шрифтів (Академічний стиль) ---
+# --- Налаштування шрифтів ---
 matplotlib.rcParams['font.family'] = 'Times New Roman'
 matplotlib.rcParams['font.size'] = 12
 
 print("ЗБІР ДАНИХ З УСІХ 25 ПРОГОНІВ...")
 
 # =====================================================================
-# ЧАСТИНА 1: ЗБІР УСІЄЇ СТАТИСТИКИ
+# ЧАСТИНА 1: ЗБІР УСІЄЇ СТАТИСТИКИ (ДОДАНО ВІДХИЛЕННЯ)
 # =====================================================================
 all_data = []
-
 for set_idx in range(5):
     for run in range(1, 6):
         file_path = f"Set_{set_idx}/Run_{run}/simulation_stats.csv"
         if os.path.exists(file_path):
             df = pd.read_csv(file_path)
             
-            metric = df['Average Crusher Queue']
+            # Використовуємо згладжену чергу для аналізу стабільності
+            metric = df['Average Crusher Queue'].expanding().mean()
             final_value = metric.iloc[-1]
             epsilon = 0.02 * final_value if final_value > 0 else 0.02
-            
-            out_of_corridor = np.abs(metric - final_value) > epsilon
-            indices = np.where(out_of_corridor)[0]
-            
+            indices = np.where(np.abs(metric - final_value) > epsilon)[0]
             t_transient = df.loc[indices[-1], 'Time'] if len(indices) > 0 else 0.0
             
             max_allowed_t = df['Time'].max() * 0.25
-            if t_transient > max_allowed_t:
-                t_transient = max_allowed_t
+            if t_transient > max_allowed_t: t_transient = max_allowed_t
             
             df_stable = df[df['Time'] > t_transient]
             
+            # Збираємо середні значення ТА середньоквадратичні відхилення
             all_data.append({
                 'Set': set_idx, 'Run': run,
+                # Середні значення (Mean)
                 'Mean_Crush_Util': df_stable['Crusher Utilization'].mean(),
                 'Mean_Crush_Q': df_stable['Average Crusher Queue'].mean(),
                 'Mean_Exc1_Util': df_stable['Excavator 1 Utilization'].mean(),
                 'Mean_Exc2_Util': df_stable['Excavator 2 Utilization'].mean(),
-                'Mean_Exc3_Util': df_stable['Excavator 3 Utilization'].mean()
+                'Mean_Exc3_Util': df_stable['Excavator 3 Utilization'].mean(),
+                # Середньоквадратичні відхилення (Std Dev)
+                'Std_Crush_Util': df_stable['Crusher Utilization'].std(),
+                'Std_Crush_Q': df_stable['Average Crusher Queue'].std(),
+                'Std_Exc1_Util': df_stable['Excavator 1 Utilization'].std(),
+                'Std_Exc2_Util': df_stable['Excavator 2 Utilization'].std(),
+                'Std_Exc3_Util': df_stable['Excavator 3 Utilization'].std()
             })
 
 df_results = pd.DataFrame(all_data)
-global_means = df_results.groupby('Set').mean().reset_index()
+
+# Глобальні середні значення (Table A.4)
+global_means = df_results.groupby('Set')[['Mean_Crush_Util', 'Mean_Crush_Q', 'Mean_Exc1_Util', 'Mean_Exc2_Util', 'Mean_Exc3_Util']].mean().reset_index()
+
+# Глобальні відхилення (відхилення між середніми значеннями прогонів - Table A.5)
+global_stds = df_results.groupby('Set')[['Mean_Crush_Util', 'Mean_Crush_Q', 'Mean_Exc1_Util', 'Mean_Exc2_Util', 'Mean_Exc3_Util']].std().reset_index()
+
 
 # =====================================================================
 # ЧАСТИНА 2: РОЗДІЛ 4 (ГРАФІКИ ТА АНАЛІЗ)
 # =====================================================================
-print("\n" + "="*95)
-print(f"{'=== РОЗДІЛ 4: ЕКСПЕРИМЕНТАЛЬНЕ ДОСЛІДЖЕННЯ ===':^95}")
-print("="*95)
+print("\n" + "="*115)
+print(f"{'=== РОЗДІЛ 4: ЕКСПЕРИМЕНТАЛЬНЕ ДОСЛІДЖЕННЯ ===':^115}")
+print("="*115)
 
 if not global_means.empty:
     print("\nТаблиця 4.1 - Середні показники стаціонарного режиму для 5 сценаріїв:")
-    h41 = f"| {'Сценарій (Set)':<25} | {'Зав.Дроб.':^10} | {'Черг.Дроб.':^10} | {'Зав.Ек1':^9} | {'Зав.Ек2':^9} | {'Зав.Ек3':^9} |"
-    s41 = f"|{'-'*27}|{'-'*12}|{'-'*12}|{'-'*11}|{'-'*11}|{'-'*11}|"
-    print(h41); print(s41)
-    
     scenario_names = ["Set_0 (Базовий)", "Set_1 (Повільна др.)", "Set_2 (Швидкі екск.)", "Set_3 (Більше парк)", "Set_4 (Без пріор.)"]
+    
+    table_41 = []
     for idx, row in global_means.iterrows():
-        print(f"| {scenario_names[int(row['Set'])]:<25} | {row['Mean_Crush_Util']:^10.4f} | {row['Mean_Crush_Q']:^10.4f} | {row['Mean_Exc1_Util']:^9.4f} | {row['Mean_Exc2_Util']:^9.4f} | {row['Mean_Exc3_Util']:^9.4f} |")
+        table_41.append([
+            scenario_names[int(row['Set'])],
+            f"{row['Mean_Crush_Util']:.4f}", f"{row['Mean_Crush_Q']:.4f}",
+            f"{row['Mean_Exc1_Util']:.4f}", f"{row['Mean_Exc2_Util']:.4f}", f"{row['Mean_Exc3_Util']:.4f}"
+        ])
+    
+    # РОЗШИРЕНІ ЗАГОЛОВКИ (A.1, A.4)
+    headers_descriptive_set = ["Сценарій (Set)", "Завантаження Дробівки", "Черга до Дробівки", "Завант. Екскаватора 1", "Завант. Екскаватора 2", "Завант. Екскаватора 3"]
+    print(tabulate(table_41, headers=headers_descriptive_set, tablefmt="github", stralign="center"))
 
 base_dir = "Set_0/Run_1"
 if os.path.exists(f"{base_dir}/simulation_stats.csv"):
     df_stats = pd.read_csv(f"{base_dir}/simulation_stats.csv")
     df_wait = pd.read_csv(f"{base_dir}/wait_times.csv")
     
-    # Розрахунок перехідного періоду Run 1
-    metric_run1 = df_stats['Average Crusher Queue']
+    # Згладжуємо для пошуку межі на графіку
+    metric_run1 = df_stats['Average Crusher Queue'].expanding().mean()
     final_val_run1 = metric_run1.iloc[-1]
     epsilon_run1 = 0.02 * final_val_run1 if final_val_run1 > 0 else 0.02
     unstable_points = df_stats.index[np.abs(metric_run1 - final_val_run1) > epsilon_run1].tolist()
-    t_transient_run1 = df_stats.loc[unstable_points[-1], 'Time'] if len(unstable_points) > 0 else 0.0
-    if t_transient_run1 > df_stats['Time'].max() * 0.20: t_transient_run1 = df_stats['Time'].max() * 0.20
+    t_trans_run1 = df_stats.loc[unstable_points[-1], 'Time'] if len(unstable_points) > 0 else 0.0
+    if t_trans_run1 > df_stats['Time'].max() * 0.20: t_trans_run1 = df_stats['Time'].max() * 0.20
     
-    print(f"\n[*] Програмно розрахований час перехідного періоду для Run_1: T = {t_transient_run1:.2f} хв.")
+    print(f"\n[*] Програмно розрахований час перехідного періоду для Run_1: T = {t_trans_run1:.2f} хв.")
 
-    # Графік 1: Черги
+    # --- Графік 1: Черги ---
     plt.figure(figsize=(10, 5))
-    plt.plot(df_stats['Time'], df_stats['Average Crusher Queue'], color='red', linewidth=2.5, label='Дробівка')
-    plt.plot(df_stats['Time'], df_stats['Excavator 1 Average Queue'], color='#1f77b4', linewidth=1.5, label='Екскаватор 1')
-    plt.plot(df_stats['Time'], df_stats['Excavator 2 Average Queue'], color='#ff7f0e', linewidth=1.5, linestyle='--', label='Екскаватор 2')
-    plt.plot(df_stats['Time'], df_stats['Excavator 3 Average Queue'], color='#2ca02c', linewidth=1.5, linestyle=':', label='Екскаватор 3')
-    plt.axvline(x=t_transient_run1, color='black', linestyle='--', linewidth=1.5, label='Межа T_trans')
-    plt.axvspan(0, t_transient_run1, color='gray', alpha=0.1)
+    plt.plot(df_stats['Time'], df_stats['Average Crusher Queue'].expanding().mean(), color='red', linewidth=2.5, label='Дробівка')
+    plt.plot(df_stats['Time'], df_stats['Excavator 1 Average Queue'].expanding().mean(), color='#1f77b4', linewidth=1.5, label='Екскаватор 1')
+    plt.plot(df_stats['Time'], df_stats['Excavator 2 Average Queue'].expanding().mean(), color='#ff7f0e', linewidth=1.5, linestyle='--', label='Екскаватор 2')
+    plt.plot(df_stats['Time'], df_stats['Excavator 3 Average Queue'].expanding().mean(), color='#2ca02c', linewidth=1.5, linestyle=':', label='Екскаватор 3')
+    plt.axvline(x=t_trans_run1, color='black', linestyle='--', linewidth=1.5, label='Межа T_trans')
+    plt.axvspan(0, t_trans_run1, color='gray', alpha=0.1)
     plt.title('Залежність середньої довжини черг від часу моделювання', fontweight='bold')
-    plt.xlabel('Час (хв)'); plt.ylabel('Кількість вантажівок')
+    plt.xlabel('Час (хв)'); plt.ylabel('Середня кількість вантажівок')
     plt.legend(loc='upper right'); plt.grid(True, linestyle='--', alpha=0.6); plt.tight_layout()
     plt.savefig('average_queues_run1.svg', format='svg'); plt.close()
 
-    # Графік 2: Завантаження
+    # --- Графік 2: Завантаження ---
     plt.figure(figsize=(10, 5))
-    plt.plot(df_stats['Time'], df_stats['Crusher Utilization'], color='red', linewidth=2.5, label='Дробівка')
-    plt.plot(df_stats['Time'], df_stats['Excavator 1 Utilization'], color='#1f77b4', linewidth=1.5, label='Екскаватор 1')
-    plt.plot(df_stats['Time'], df_stats['Excavator 2 Utilization'], color='#ff7f0e', linewidth=1.5, linestyle='--', label='Екскаватор 2')
-    plt.plot(df_stats['Time'], df_stats['Excavator 3 Utilization'], color='#2ca02c', linewidth=1.5, linestyle=':', label='Екскаватор 3')
-    plt.axvline(x=t_transient_run1, color='black', linestyle='--', linewidth=1.5)
-    plt.axvspan(0, t_transient_run1, color='gray', alpha=0.1)
+    plt.plot(df_stats['Time'], df_stats['Crusher Utilization'].expanding().mean(), color='red', linewidth=2.5, label='Дробівка')
+    plt.plot(df_stats['Time'], df_stats['Excavator 1 Utilization'].expanding().mean(), color='#1f77b4', linewidth=1.5, label='Екскаватор 1')
+    plt.plot(df_stats['Time'], df_stats['Excavator 2 Utilization'].expanding().mean(), color='#ff7f0e', linewidth=1.5, linestyle='--', label='Екскаватор 2')
+    plt.plot(df_stats['Time'], df_stats['Excavator 3 Utilization'].expanding().mean(), color='#2ca02c', linewidth=1.5, linestyle=':', label='Екскаватор 3')
+    # Додано лінію межі та затінення для графіку завантаження
+    plt.axvline(x=t_trans_run1, color='black', linestyle='--', linewidth=1.5, label='Межа T_trans')
+    plt.axvspan(0, t_trans_run1, color='gray', alpha=0.1)
     plt.title('Залежність завантаження ресурсів від часу моделювання', fontweight='bold')
-    plt.xlabel('Час (хв)'); plt.ylabel('Коефіцієнт'); plt.ylim(0, 1.05)
+    plt.xlabel('Час (хв)'); plt.ylabel('Коефіцієнт завантаження'); plt.ylim(0, 1.05)
     plt.legend(loc='lower right'); plt.grid(True, linestyle='--', alpha=0.6); plt.tight_layout()
     plt.savefig('utilization_run1.svg', format='svg'); plt.close()
 
     # Хі-квадрат
     print("\n--- Перевірка розподілу за критерієм Пірсона (Chi-squared) ---")
-    df_stable_wait = df_wait[df_wait['Time'] > t_transient_run1]
+    df_stable_wait = df_wait[df_wait['Time'] > t_trans_run1]
     wait_50t = df_stable_wait[df_stable_wait['TruckType'] == 50]['WaitTime'].values
     
     def chi_squared_test(data):
+        if len(data) == 0: return False, 0, 0
         n = len(data)
-        if n == 0: return False, 0, 0, 0
         mean = np.mean(data)
         bins = int(np.ceil(1 + 3.322 * np.log10(n))) 
         obs, edges = np.histogram(data, bins=bins)
@@ -126,6 +144,7 @@ if os.path.exists(f"{base_dir}/simulation_stats.csv"):
         valid = exp_counts > 0
         chi_stat = np.sum((obs[valid] - exp_counts[valid])**2 / exp_counts[valid])
         df_val = len(obs[valid]) - 2
+        if df_val <= 0: return False, 0, 0
         crit = chi2.ppf(0.95, df_val)
         return chi_stat < crit, chi_stat, crit
     
@@ -135,42 +154,74 @@ if os.path.exists(f"{base_dir}/simulation_stats.csv"):
     print("ВИСНОВОК: Гіпотеза " + ("ПРИЙМАЄТЬСЯ." if is_exp else "ВІДХИЛЯЄТЬСЯ."))
 
 # =====================================================================
-# ЧАСТИНА 3: ДОДАТОК А
+# ЧАСТИНА 3: ДОДАТОК А (ПОВНИЙ НАБІР ТАБЛИЦЬ)
 # =====================================================================
 if not df_results.empty:
-    print("\n" + "="*85)
-    print(f"{'ДОДАТОК А':^85}\n{'Результати верифікації':^85}")
-    print("="*85)
+    print("\n" + "="*115)
+    print(f"{'ДОДАТОК А':^115}\n{'Результати верифікації':^115}")
+    print("="*115)
 
-    # Таблиця А.2
+    # РОЗШИРЕНІ ЗАГОЛОВКИ (A.2, A.3, A.6)
+    headers_descriptive_run = ["Набір", "Прогін", "Завантаження Дробівки", "Черга до Дробівки", "Завант. Екскаватора 1", "Завант. Екскаватора 2", "Завант. Екскаватора 3"]
+    headers_descriptive_global = ["Набір", "Завантаження Дробівки", "Черга до Дробівки", "Завант. Екскаватора 1", "Завант. Екскаватора 2", "Завант. Екскаватора 3"]
+
+    # Таблиця А.2 (Mean)
     print("\nТаблиця А.2 Середні значення вихідних параметрів")
-    h_a2 = f"| {'Набір':^5} | {'Пр':^3} | {'Зав.Дроб.':^10} | {'Черг.Дроб.':^10} | {'Зав.Ек1':^9} | {'Зав.Ек2':^9} | {'Зав.Ек3':^9} |"
-    s_a2 = f"|{'-'*7}|{'-'*5}|{'-'*12}|{'-'*12}|{'-'*11}|{'-'*11}|{'-'*11}|"
-    print(h_a2); print(s_a2)
+    table_a2 = []
     for _, row in df_results.iterrows():
-        print(f"| {int(row['Set']):^5} | {int(row['Run']):^3} | {row['Mean_Crush_Util']:^10.5f} | {row['Mean_Crush_Q']:^10.5f} | {row['Mean_Exc1_Util']:^9.5f} | {row['Mean_Exc2_Util']:^9.5f} | {row['Mean_Exc3_Util']:^9.5f} |")
+        table_a2.append([
+            int(row['Set']), int(row['Run']),
+            f"{row['Mean_Crush_Util']:.5f}", f"{row['Mean_Crush_Q']:.5f}",
+            f"{row['Mean_Exc1_Util']:.5f}", f"{row['Mean_Exc2_Util']:.5f}", f"{row['Mean_Exc3_Util']:.5f}"
+        ])
+    print(tabulate(table_a2, headers=headers_descriptive_run, tablefmt="github", stralign="center"))
 
-    # Таблиця А.4
+    # Таблиця А.3 (Std Dev)
+    print("\nТаблиця А.3 Середньоквадратичні відхилення вихідних параметрів")
+    table_a3 = []
+    for _, row in df_results.iterrows():
+        table_a3.append([
+            int(row['Set']), int(row['Run']),
+            f"{row['Std_Crush_Util']:.5f}", f"{row['Std_Crush_Q']:.5f}",
+            f"{row['Std_Exc1_Util']:.5f}", f"{row['Std_Exc2_Util']:.5f}", f"{row['Std_Exc3_Util']:.5f}"
+        ])
+    print(tabulate(table_a3, headers=headers_descriptive_run, tablefmt="github", stralign="center"))
+
+    # Таблиця А.4 (Global Mean)
     print("\nТаблиця А.4 Глобальні середні значення")
-    h_a4 = f"| {'Набір':^5} | {'Зав.Дроб.':^10} | {'Черг.Дроб.':^10} | {'Зав.Ек1':^9} | {'Зав.Ек2':^9} | {'Зав.Ек3':^9} |"
-    s_a4 = f"|{'-'*7}|{'-'*12}|{'-'*12}|{'-'*11}|{'-'*11}|{'-'*11}|"
-    print(h_a4); print(s_a4)
+    table_a4 = []
     for _, row in global_means.iterrows():
-        print(f"| {int(row['Set']):^5} | {row['Mean_Crush_Util']:^10.5f} | {row['Mean_Crush_Q']:^10.5f} | {row['Mean_Exc1_Util']:^9.5f} | {row['Mean_Exc2_Util']:^9.5f} | {row['Mean_Exc3_Util']:^9.5f} |")
+        table_a4.append([
+            int(row['Set']),
+            f"{row['Mean_Crush_Util']:.5f}", f"{row['Mean_Crush_Q']:.5f}",
+            f"{row['Mean_Exc1_Util']:.5f}", f"{row['Mean_Exc2_Util']:.5f}", f"{row['Mean_Exc3_Util']:.5f}"
+        ])
+    print(tabulate(table_a4, headers=headers_descriptive_global, tablefmt="github", stralign="center"))
 
-    # Таблиця А.6 (ВИПРАВЛЕНО ВИРІВНЮВАННЯ %)
+    # Таблиця А.5 (Global Std Dev)
+    print("\nТаблиця А.5 Глобальні середньоквадратичні відхилення")
+    table_a5 = []
+    for _, row in global_stds.iterrows():
+        table_a5.append([
+            int(row['Set']),
+            f"{row['Mean_Crush_Util']:.5f}", f"{row['Mean_Crush_Q']:.5f}",
+            f"{row['Mean_Exc1_Util']:.5f}", f"{row['Mean_Exc2_Util']:.5f}", f"{row['Mean_Exc3_Util']:.5f}"
+        ])
+    print(tabulate(table_a5, headers=headers_descriptive_global, tablefmt="github", stralign="center"))
+
+    # Таблиця А.6 (Error %)
     print("\nТаблиця А.6 Відсоткові відхилення (%)")
-    print(h_a2); print(s_a2)
+    table_a6 = []
     for _, row in df_results.iterrows():
         s = int(row['Set'])
         gm = global_means[global_means['Set'] == s].iloc[0]
         cols = ['Mean_Crush_Util', 'Mean_Crush_Q', 'Mean_Exc1_Util', 'Mean_Exc2_Util', 'Mean_Exc3_Util']
         devs = [abs(row[c] - gm[c])/gm[c]*100 if gm[c] != 0 else 0 for c in cols]
         
-        # СТВОРЮЄМО РЯДКИ З % ВСЕРЕДИНІ ЦЕНТРУВАННЯ
-        d0 = f"{devs[0]:.4f} %"; d1 = f"{devs[1]:.4f} %"
-        d2 = f"{devs[2]:.4f} %"; d3 = f"{devs[3]:.4f} %"; d4 = f"{devs[4]:.4f} %"
-        
-        print(f"| {s:^5} | {int(row['Run']):^3} | {d0:^10} | {d1:^10} | {d2:^9} | {d3:^9} | {d4:^9} |")
+        table_a6.append([
+            s, int(row['Run']),
+            f"{devs[0]:.4f} %", f"{devs[1]:.4f} %", f"{devs[2]:.4f} %", f"{devs[3]:.4f} %", f"{devs[4]:.4f} %"
+        ])
+    print(tabulate(table_a6, headers=headers_descriptive_run, tablefmt="github", stralign="center"))
 
 print("\nГенерація завершена успішно!")

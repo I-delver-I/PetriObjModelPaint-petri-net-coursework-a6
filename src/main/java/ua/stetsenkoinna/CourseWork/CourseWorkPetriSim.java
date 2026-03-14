@@ -43,15 +43,16 @@ public class CourseWorkPetriSim {
             if (nextTime > getSimulationTime()) {
                 nextTime = getSimulationTime(); // Prevent overshooting the max time
             }
-            // Calculate the time delta since the last event
-            double dt = (nextTime - getCurrentTime()) / getSimulationTime();
 
-            // Update the average values for all places and transitions
-            for (PetriP p : listP) {
-                p.changeMean(dt);
-            }
-            for (PetriT t : listT) {
-                t.changeMean(dt);
+            double dt = nextTime - getCurrentTime();
+
+            if (dt > 0) { // Оновлюємо статистику тільки якщо час дійсно просунувся
+                for (PetriP p : listP) {
+                    p.changeMean(dt);
+                }
+                for (PetriT t : listT) {
+                    t.changeMean(dt);
+                }
             }
             // ---------------------------------
 
