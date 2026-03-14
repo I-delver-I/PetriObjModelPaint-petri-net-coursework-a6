@@ -25,7 +25,32 @@ for set_idx in range(5):
         file_path = f"Set_{set_idx}/Run_{run}/simulation_stats.csv"
         if os.path.exists(file_path):
             df = pd.read_csv(file_path)
-            df_stable = df[df['Time'] > 60000] # Відкидаємо перехідний період динамічно
+            
+            metric = df['Average Crusher Queue']
+            final_value = metric.iloc[-1] # Беремо фінальне стале значення
+            epsilon = 0.02 * final_value if final_value > 0 else 0.02 # Точність epsilon = 2%
+            
+            # Знаходимо всі точки, які знаходяться ПОЗА коридором
+            out_of_corridor = np.abs(metric - final_value) > epsilon
+
+            # Шукаємо момент, після якого значення стабільно тримається в коридорі
+            # (наприклад, останні 20% часу модель точно стабільна)
+            indices = np.where(out_of_corridor)[0]
+            
+            if len(indices) > 0:
+                # Ми беремо не останній індекс взагалі, а останній суттєвий сплеск
+                # Для кумулятивного середнього краще брати точку, де воно перетинає 
+                # межу 95-98% від фінального значення
+                t_transient = df.loc[indices[-1], 'Time']
+            else:
+                t_transient = 0.0
+            
+            # Останній такий індекс — це кінець перехідного періоду
+            max_allowed_t = df['Time'].max() * 0.25
+            if t_transient > max_allowed_t:
+                t_transient = max_allowed_t
+            
+            df_stable = df[df['Time'] > t_transient] # Відкидаємо перехідний період динамічно
             
             mean_crush_util = df_stable['Crusher Utilization'].mean()
             std_crush_util = df_stable['Crusher Utilization'].std()
@@ -100,7 +125,24 @@ if os.path.exists(f"{base_dir}/simulation_stats.csv"):
     plt.close()
 
     # --- Графіки 3 і 4: Гістограми розподілів ---
-    df_stable_wait = df_wait[df_wait['Time'] > 60000]
+    metric_run1 = df_stats['Average Crusher Queue']
+    final_val_run1 = metric_run1.iloc[-1]
+    epsilon_run1 = 0.02 * final_val_run1 if final_val_run1 > 0 else 0.02
+    unstable_points = df_stats.index[np.abs(metric_run1 - final_val_run1) > epsilon_run1].tolist()
+    
+    if len(unstable_points) > 0:
+        # T_transient — це час останнього виходу за межі 2% коридору
+        t_transient_run1 = df_stats.loc[unstable_points[-1], 'Time']
+    else:
+        t_transient_run1 = 0.0
+        
+    max_limit = df_stats['Time'].max() * 0.20
+    if t_transient_run1 > max_limit:
+        t_transient_run1 = max_limit
+    
+    print(f"[*] Програмно розрахований час перехідного періоду для Run_1: T = {t_transient_run1:.2f} хв.")
+    
+    df_stable_wait = df_wait[df_wait['Time'] > t_transient_run1]
 
     def plot_distribution(data, title, filename):
         if len(data) == 0: return
