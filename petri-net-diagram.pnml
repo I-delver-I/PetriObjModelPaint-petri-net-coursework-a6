@@ -13,10 +13,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="158.0" y="180.0"/>
+          <coordinates x="180.0" y="207.0"/>
         </toolspecific>
         <graphics>
-          <position x="158" y="180"/>
+          <position x="180" y="207"/>
         </graphics>
       </place>
       <place id="p-p4-aa8204b4">
@@ -27,10 +27,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1239.0" y="612.0"/>
+          <coordinates x="1261.0" y="639.0"/>
         </toolspecific>
         <graphics>
-          <position x="1239" y="612"/>
+          <position x="1261" y="639"/>
         </graphics>
       </place>
       <place id="p-p5-6e2d7033">
@@ -41,10 +41,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="158.0" y="50.0"/>
+          <coordinates x="180.0" y="77.0"/>
         </toolspecific>
         <graphics>
-          <position x="158" y="50"/>
+          <position x="180" y="77"/>
         </graphics>
       </place>
       <place id="p-p6-c2e38420">
@@ -52,10 +52,10 @@
           <text>Transit to crusher from excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="530.0" y="118.0"/>
+          <coordinates x="552.0" y="145.0"/>
         </toolspecific>
         <graphics>
-          <position x="530" y="118"/>
+          <position x="552" y="145"/>
         </graphics>
       </place>
       <place id="p-p7-f02e6016">
@@ -63,10 +63,10 @@
           <text>Wait from excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="999.0" y="120.0"/>
+          <coordinates x="1021.0" y="147.0"/>
         </toolspecific>
         <graphics>
-          <position x="999" y="120"/>
+          <position x="1021" y="147"/>
         </graphics>
       </place>
       <place id="p-p8-80b97476">
@@ -74,10 +74,10 @@
           <text>Transit to excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="955.0" y="54.0"/>
+          <coordinates x="977.0" y="81.0"/>
         </toolspecific>
         <graphics>
-          <position x="955" y="54"/>
+          <position x="977" y="81"/>
         </graphics>
       </place>
       <place id="p-wait-excavator-1-20t-071ba9ac">
@@ -88,10 +88,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="156.0" y="340.0"/>
+          <coordinates x="178.0" y="367.0"/>
         </toolspecific>
         <graphics>
-          <position x="156" y="340"/>
+          <position x="178" y="367"/>
         </graphics>
       </place>
       <place id="p-p1-97eb8d8f">
@@ -99,10 +99,10 @@
           <text>Transit to crusher from excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="532.0" y="234.0"/>
+          <coordinates x="554.0" y="261.0"/>
         </toolspecific>
         <graphics>
-          <position x="532" y="234"/>
+          <position x="554" y="261"/>
         </graphics>
       </place>
       <place id="p-p2-ea1b9def">
@@ -110,10 +110,10 @@
           <text>Wait from excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1000.0" y="235.0"/>
+          <coordinates x="1018.0" y="267.0"/>
         </toolspecific>
         <graphics>
-          <position x="1000" y="235"/>
+          <position x="1018" y="267"/>
         </graphics>
       </place>
       <place id="p-p3-a7e775e9">
@@ -121,10 +121,10 @@
           <text>Transit to excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="952.0" y="340.0"/>
+          <coordinates x="974.0" y="367.0"/>
         </toolspecific>
         <graphics>
-          <position x="952" y="340"/>
+          <position x="974" y="367"/>
         </graphics>
       </place>
       <place id="p-wait-from-excavator--a534cec7">
@@ -132,10 +132,10 @@
           <text>Wait from excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="997.0" y="647.0"/>
+          <coordinates x="1019.0" y="674.0"/>
         </toolspecific>
         <graphics>
-          <position x="997" y="647"/>
+          <position x="1019" y="674"/>
         </graphics>
       </place>
       <place id="p-transit-to-excavator-ceede8b8">
@@ -143,10 +143,10 @@
           <text>Transit to excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="949.0" y="752.0"/>
+          <coordinates x="971.0" y="779.0"/>
         </toolspecific>
         <graphics>
-          <position x="949" y="752"/>
+          <position x="971" y="779"/>
         </graphics>
       </place>
       <place id="p-free-excavator-1-288ba0ca">
@@ -157,10 +157,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="155.0" y="592.0"/>
+          <coordinates x="177.0" y="619.0"/>
         </toolspecific>
         <graphics>
-          <position x="155" y="592"/>
+          <position x="177" y="619"/>
         </graphics>
       </place>
       <place id="p-wait-excavator-1-50t-c6c2d2fd">
@@ -171,10 +171,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="153.0" y="752.0"/>
+          <coordinates x="175.0" y="779.0"/>
         </toolspecific>
         <graphics>
-          <position x="153" y="752"/>
+          <position x="175" y="779"/>
         </graphics>
       </place>
       <place id="p-wait-from-excavator--1600726a">
@@ -182,10 +182,10 @@
           <text>Wait from excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="996.0" y="532.0"/>
+          <coordinates x="1018.0" y="559.0"/>
         </toolspecific>
         <graphics>
-          <position x="996" y="532"/>
+          <position x="1018" y="559"/>
         </graphics>
       </place>
       <place id="p-transit-to-crusher-f-b0827e61">
@@ -193,10 +193,10 @@
           <text>Transit to crusher from excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="527.0" y="530.0"/>
+          <coordinates x="549.0" y="557.0"/>
         </toolspecific>
         <graphics>
-          <position x="527" y="530"/>
+          <position x="549" y="557"/>
         </graphics>
       </place>
       <place id="p-wait-excavator-1-20t-c2b091ff">
@@ -207,10 +207,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="156.0" y="470.0"/>
+          <coordinates x="178.0" y="497.0"/>
         </toolspecific>
         <graphics>
-          <position x="156" y="470"/>
+          <position x="178" y="497"/>
         </graphics>
       </place>
       <place id="p-transit-to-crusher-f-c0c9d4e3">
@@ -218,10 +218,10 @@
           <text>Transit to crusher from excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="546.0" y="652.0"/>
+          <coordinates x="568.0" y="679.0"/>
         </toolspecific>
         <graphics>
-          <position x="546" y="652"/>
+          <position x="568" y="679"/>
         </graphics>
       </place>
       <place id="p-transit-to-excavator-2ea04f31">
@@ -229,10 +229,10 @@
           <text>Transit to excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="948.0" y="472.0"/>
+          <coordinates x="970.0" y="499.0"/>
         </toolspecific>
         <graphics>
-          <position x="948" y="472"/>
+          <position x="970" y="499"/>
         </graphics>
       </place>
       <place id="p-free-excavator-1-e043f3a9">
@@ -243,10 +243,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="153.0" y="1002.0"/>
+          <coordinates x="175.0" y="1029.0"/>
         </toolspecific>
         <graphics>
-          <position x="153" y="1002"/>
+          <position x="175" y="1029"/>
         </graphics>
       </place>
       <place id="p-wait-excavator-1-50t-04765af2">
@@ -257,10 +257,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="151.0" y="1162.0"/>
+          <coordinates x="173.0" y="1189.0"/>
         </toolspecific>
         <graphics>
-          <position x="151" y="1162"/>
+          <position x="173" y="1189"/>
         </graphics>
       </place>
       <place id="p-transit-to-crusher-f-7e1381bb">
@@ -268,10 +268,10 @@
           <text>Transit to crusher from excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="525.0" y="940.0"/>
+          <coordinates x="547.0" y="967.0"/>
         </toolspecific>
         <graphics>
-          <position x="525" y="940"/>
+          <position x="547" y="967"/>
         </graphics>
       </place>
       <place id="p-transit-to-crusher-f-8d945d67">
@@ -279,10 +279,10 @@
           <text>Transit to crusher from excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="562.0" y="1058.0"/>
+          <coordinates x="584.0" y="1085.0"/>
         </toolspecific>
         <graphics>
-          <position x="562" y="1058"/>
+          <position x="584" y="1085"/>
         </graphics>
       </place>
       <place id="p-transit-to-excavator-158cc676">
@@ -290,10 +290,10 @@
           <text>Transit to excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="947.0" y="1162.0"/>
+          <coordinates x="969.0" y="1189.0"/>
         </toolspecific>
         <graphics>
-          <position x="947" y="1162"/>
+          <position x="969" y="1189"/>
         </graphics>
       </place>
       <place id="p-transit-to-excavator-dd78b084">
@@ -301,10 +301,10 @@
           <text>Transit to excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="946.0" y="882.0"/>
+          <coordinates x="968.0" y="909.0"/>
         </toolspecific>
         <graphics>
-          <position x="946" y="882"/>
+          <position x="968" y="909"/>
         </graphics>
       </place>
       <place id="p-wait-excavator-1-20t-378d8a64">
@@ -315,10 +315,10 @@
           <text>1</text>
         </initialMarking>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="154.0" y="880.0"/>
+          <coordinates x="176.0" y="907.0"/>
         </toolspecific>
         <graphics>
-          <position x="154" y="880"/>
+          <position x="176" y="907"/>
         </graphics>
       </place>
       <place id="p-wait-from-excavator--914d315c">
@@ -326,10 +326,10 @@
           <text>Wait from excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="994.0" y="942.0"/>
+          <coordinates x="1016.0" y="969.0"/>
         </toolspecific>
         <graphics>
-          <position x="994" y="942"/>
+          <position x="1016" y="969"/>
         </graphics>
       </place>
       <place id="p-wait-from-excavator--bf050d38">
@@ -337,10 +337,10 @@
           <text>Wait from excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="995.0" y="1057.0"/>
+          <coordinates x="1017.0" y="1084.0"/>
         </toolspecific>
         <graphics>
-          <position x="995" y="1057"/>
+          <position x="1017" y="1084"/>
         </graphics>
       </place>
       <transition id="t-t1-3da009b1">
@@ -348,13 +348,13 @@
           <text>Load from excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="317.0" y="120.0"/>
+          <coordinates x="339.0" y="147.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="317" y="120"/>
+          <position x="339" y="147"/>
         </graphics>
       </transition>
       <transition id="t-t2-d0a0c324">
@@ -362,12 +362,12 @@
           <text>Move to crusher from excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="844.0" y="121.0"/>
+          <coordinates x="866.0" y="148.0"/>
           <timeDelay>2.5</timeDelay>
           <delayMeanValue>2.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="844" y="121"/>
+          <position x="866" y="148"/>
         </graphics>
       </transition>
       <transition id="t-t3-7a5d52f9">
@@ -375,13 +375,13 @@
           <text>Unload from excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1124.0" y="55.0"/>
+          <coordinates x="1144.0" y="82.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1124" y="55"/>
+          <position x="1144" y="82"/>
         </graphics>
       </transition>
       <transition id="t-t4-11ff2842">
@@ -389,12 +389,12 @@
           <text>Move to excavator 1 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="647.0" y="50.0"/>
+          <coordinates x="669.0" y="77.0"/>
           <timeDelay>1.5</timeDelay>
           <delayMeanValue>1.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="647" y="50"/>
+          <position x="669" y="77"/>
         </graphics>
       </transition>
       <transition id="t-load-excavator-1-20t-cdd3dba9">
@@ -402,13 +402,13 @@
           <text>Load from excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="324.0" y="232.0"/>
+          <coordinates x="346.0" y="259.0"/>
           <timeDelay>10.0</timeDelay>
           <delayMeanValue>10.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="324" y="232"/>
+          <position x="346" y="259"/>
         </graphics>
       </transition>
       <transition id="t-t1-5c6446d3">
@@ -416,12 +416,12 @@
           <text>Move to crusher from excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="843.0" y="235.0"/>
+          <coordinates x="865.0" y="262.0"/>
           <timeDelay>3.0</timeDelay>
           <delayMeanValue>3.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="843" y="235"/>
+          <position x="865" y="262"/>
         </graphics>
       </transition>
       <transition id="t-t2-36a89c1c">
@@ -429,14 +429,14 @@
           <text>Unload from excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1112.0" y="339.0"/>
+          <coordinates x="1138.0" y="366.0"/>
           <timeDelay>4.0</timeDelay>
           <delayMeanValue>4.0</delayMeanValue>
-          <priority>1</priority>
+          <priority>9</priority>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1112" y="339"/>
+          <position x="1138" y="366"/>
         </graphics>
       </transition>
       <transition id="t-t3-14db34d6">
@@ -444,12 +444,12 @@
           <text>Move to excavator 1 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="642.0" y="341.0"/>
+          <coordinates x="664.0" y="368.0"/>
           <timeDelay>2.0</timeDelay>
           <delayMeanValue>2.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="642" y="341"/>
+          <position x="664" y="368"/>
         </graphics>
       </transition>
       <transition id="t-load-from-excavator--bf0363cd">
@@ -457,13 +457,13 @@
           <text>Load from excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="321.0" y="644.0"/>
+          <coordinates x="343.0" y="671.0"/>
           <timeDelay>10.0</timeDelay>
           <delayMeanValue>10.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="321" y="644"/>
+          <position x="343" y="671"/>
         </graphics>
       </transition>
       <transition id="t-unload-from-excavato-39e2272f">
@@ -471,13 +471,13 @@
           <text>Unload from excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1111.0" y="472.0"/>
+          <coordinates x="1133.0" y="499.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1111" y="472"/>
+          <position x="1133" y="499"/>
         </graphics>
       </transition>
       <transition id="t-move-to-crusher-from-b2b33330">
@@ -485,12 +485,12 @@
           <text>Move to crusher from excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="840.0" y="647.0"/>
+          <coordinates x="862.0" y="674.0"/>
           <timeDelay>3.0</timeDelay>
           <delayMeanValue>3.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="840" y="647"/>
+          <position x="862" y="674"/>
         </graphics>
       </transition>
       <transition id="t-load-from-excavator--a0ea6e1c">
@@ -498,13 +498,13 @@
           <text>Load from excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="314.0" y="532.0"/>
+          <coordinates x="336.0" y="559.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="314" y="532"/>
+          <position x="336" y="559"/>
         </graphics>
       </transition>
       <transition id="t-move-to-crusher-from-5f7ce6c8">
@@ -512,12 +512,12 @@
           <text>Move to crusher from excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="841.0" y="533.0"/>
+          <coordinates x="863.0" y="560.0"/>
           <timeDelay>2.5</timeDelay>
           <delayMeanValue>2.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="841" y="533"/>
+          <position x="863" y="560"/>
         </graphics>
       </transition>
       <transition id="t-move-to-excavator-1--32877c9f">
@@ -525,12 +525,12 @@
           <text>Move to excavator 2 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="640.0" y="469.0"/>
+          <coordinates x="662.0" y="496.0"/>
           <timeDelay>1.5</timeDelay>
           <delayMeanValue>1.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="640" y="469"/>
+          <position x="662" y="496"/>
         </graphics>
       </transition>
       <transition id="t-move-to-excavator-1--3e00bf35">
@@ -538,12 +538,12 @@
           <text>Move to excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="639.0" y="753.0"/>
+          <coordinates x="661.0" y="780.0"/>
           <timeDelay>2.0</timeDelay>
           <delayMeanValue>2.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="639" y="753"/>
+          <position x="661" y="780"/>
         </graphics>
       </transition>
       <transition id="t-unload-from-excavato-42df8cce">
@@ -551,14 +551,14 @@
           <text>Unload from excavator 2 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1109.0" y="751.0"/>
+          <coordinates x="1135.0" y="778.0"/>
           <timeDelay>4.0</timeDelay>
           <delayMeanValue>4.0</delayMeanValue>
-          <priority>1</priority>
+          <priority>9</priority>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1109" y="751"/>
+          <position x="1135" y="778"/>
         </graphics>
       </transition>
       <transition id="t-load-from-excavator--090aa568">
@@ -566,13 +566,13 @@
           <text>Load from excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="319.0" y="1054.0"/>
+          <coordinates x="341.0" y="1081.0"/>
           <timeDelay>10.0</timeDelay>
           <delayMeanValue>10.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="319" y="1054"/>
+          <position x="341" y="1081"/>
         </graphics>
       </transition>
       <transition id="t-move-to-crusher-from-4d2e4f67">
@@ -580,12 +580,12 @@
           <text>Move to crusher from excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="839.0" y="943.0"/>
+          <coordinates x="861.0" y="970.0"/>
           <timeDelay>2.5</timeDelay>
           <delayMeanValue>2.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="839" y="943"/>
+          <position x="861" y="970"/>
         </graphics>
       </transition>
       <transition id="t-unload-from-excavato-725a54d4">
@@ -593,14 +593,14 @@
           <text>Unload from excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1107.0" y="1161.0"/>
+          <coordinates x="1133.0" y="1188.0"/>
           <timeDelay>4.0</timeDelay>
           <delayMeanValue>4.0</delayMeanValue>
-          <priority>1</priority>
+          <priority>9</priority>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1107" y="1161"/>
+          <position x="1133" y="1188"/>
         </graphics>
       </transition>
       <transition id="t-move-to-excavator-1--06d622dd">
@@ -608,12 +608,12 @@
           <text>Move to excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="638.0" y="879.0"/>
+          <coordinates x="660.0" y="906.0"/>
           <timeDelay>1.5</timeDelay>
           <delayMeanValue>1.5</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="638" y="879"/>
+          <position x="660" y="906"/>
         </graphics>
       </transition>
       <transition id="t-load-from-excavator--c1b46245">
@@ -621,13 +621,13 @@
           <text>Load from excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="312.0" y="942.0"/>
+          <coordinates x="334.0" y="969.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="312" y="942"/>
+          <position x="334" y="969"/>
         </graphics>
       </transition>
       <transition id="t-move-to-crusher-from-aa0f9d28">
@@ -635,12 +635,12 @@
           <text>Move to crusher from excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="838.0" y="1057.0"/>
+          <coordinates x="860.0" y="1084.0"/>
           <timeDelay>3.0</timeDelay>
           <delayMeanValue>3.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="838" y="1057"/>
+          <position x="860" y="1084"/>
         </graphics>
       </transition>
       <transition id="t-unload-from-excavato-e150aaff">
@@ -648,13 +648,13 @@
           <text>Unload from excavator 3 20t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="1109.0" y="882.0"/>
+          <coordinates x="1131.0" y="909.0"/>
           <timeDelay>5.0</timeDelay>
           <delayMeanValue>5.0</delayMeanValue>
           <distribution>exp</distribution>
         </toolspecific>
         <graphics>
-          <position x="1109" y="882"/>
+          <position x="1131" y="909"/>
         </graphics>
       </transition>
       <transition id="t-move-to-excavator-1--3960af28">
@@ -662,12 +662,12 @@
           <text>Move to excavator 3 50t</text>
         </name>
         <toolspecific tool="PetriObjModel" version="1.0">
-          <coordinates x="637.0" y="1163.0"/>
+          <coordinates x="659.0" y="1190.0"/>
           <timeDelay>2.0</timeDelay>
           <delayMeanValue>2.0</delayMeanValue>
         </toolspecific>
         <graphics>
-          <position x="637" y="1163"/>
+          <position x="659" y="1190"/>
         </graphics>
       </transition>
       <arc id="arc-a94dd161" source="p-p5-6e2d7033" target="t-t1-3da009b1">
