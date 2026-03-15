@@ -11,8 +11,6 @@ public class CourseWorkPetriSim {
     private final PetriT[] listT;
     private PetriT eventMin;
 
-    // --- THE SHADOW TRACKER FOR FIFO ---
-    // Maps Place Index -> Queue of Token Arrival Times
     private final Map<Integer, Deque<Double>> fifoTracker = new HashMap<>();
 
     public CourseWorkPetriSim(PetriNet net) {
@@ -21,7 +19,6 @@ public class CourseWorkPetriSim {
         listT = net.getListT();
         eventMin = this.getEventMin();
 
-        // Initialize the shadow tracker for every place
         for (int i = 0; i < listP.length; i++) {
             fifoTracker.put(i, new ArrayDeque<>());
             // Initial tokens in the network are assumed to have arrived at t=0.0
@@ -38,7 +35,6 @@ public class CourseWorkPetriSim {
         while (getCurrentTime() < getSimulationTime()) {
             trackStats.accept(getCurrentTime());
 
-            // --- CALCULATE STATISTICS ---
             double nextTime = getTimeMin();
             if (nextTime > getSimulationTime()) {
                 nextTime = getSimulationTime(); // Prevent overshooting the max time
@@ -54,7 +50,6 @@ public class CourseWorkPetriSim {
                     t.changeMean(dt);
                 }
             }
-            // ---------------------------------
 
             setTimeCurr(getTimeMin());
             if (getCurrentTime() <= getSimulationTime()) {
@@ -78,12 +73,10 @@ public class CourseWorkPetriSim {
             timeMin = Double.MAX_VALUE;
         } else {
             while (!activeT.isEmpty()) {
-                // Snapshot before token removal
                 int[] marksBefore = getMarksSnapshot();
 
-                this.doConflict(activeT).actIn(listP, this.getCurrentTime()); // Note: actIn doesn't need currentTime in standard library, but if your lib requires it, leave it
+                this.doConflict(activeT).actIn(listP, this.getCurrentTime());
 
-                // Snapshot after token removal
                 int[] marksAfter = getMarksSnapshot();
                 updateFifoRemovals(marksBefore, marksAfter);
 
@@ -95,10 +88,8 @@ public class CourseWorkPetriSim {
 
     private void output() {
         if (this.getCurrentTime() <= this.getSimulationTime()) {
-            // Snapshot before tokens are added
             int[] marksBefore = getMarksSnapshot();
 
-            // Perform standard outputs
             eventMin.actOut(listP, this.getCurrentTime());
             if (eventMin.getBuffer() > 0) {
                 boolean u = true;
@@ -128,13 +119,10 @@ public class CourseWorkPetriSim {
                 }
             }
 
-            // Snapshot after tokens are added, and record the arrival time
             int[] marksAfter = getMarksSnapshot();
             updateFifoAdditions(marksBefore, marksAfter, this.getCurrentTime());
         }
     }
-
-    // --- FIFO TRACKING LOGIC ---
 
     private int[] getMarksSnapshot() {
         int[] marks = new int[listP.length];
@@ -162,8 +150,6 @@ public class CourseWorkPetriSim {
         }
     }
 
-    // --- CONFLICT RESOLUTION ---
-
     private PetriT doConflict(ArrayList<PetriT> transitions) {
         PetriT aT = transitions.get(0);
         if (transitions.size() > 1) {
@@ -176,7 +162,6 @@ public class CourseWorkPetriSim {
                 int sharedPlace = findSharedInputPlace(transitions, i);
 
                 if (sharedPlace >= 0) {
-                    // FIFO Rule applied externally!
                     double earliestTime = Double.MAX_VALUE;
                     PetriT fifoWinner = null;
                     for (int j = 0; j < i; j++) {
@@ -191,7 +176,6 @@ public class CourseWorkPetriSim {
                         aT = fifoWinner;
                     }
                 } else {
-                    // Standard probability rule
                     double r = Math.random();
                     int j = 0;
                     double sum = 0;
@@ -241,15 +225,13 @@ public class CourseWorkPetriSim {
                 if (t < earliest) earliest = t;
             }
         }
-        // Fallback if the shared place is the only input
+
         if (earliest == Double.MAX_VALUE) {
             Deque<Double> q = fifoTracker.get(sharedPlace);
             earliest = (q == null || q.isEmpty()) ? Double.MAX_VALUE : q.peekFirst();
         }
         return earliest;
     }
-
-    // --- UTILITY METHODS ---
 
     private void eventMin() {
         PetriT event = null;

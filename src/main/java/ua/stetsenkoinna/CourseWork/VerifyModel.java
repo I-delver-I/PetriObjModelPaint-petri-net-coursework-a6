@@ -15,8 +15,6 @@ public class VerifyModel {
         double simulationTime = 700000.0;
         double logInterval = 100.0;
 
-        // Таблиця А.1 - Набори параметрів
-        // Індекси наборів:                  0     1     2     3     4
         final double[] crusherUnload20t = { 5.0, 10.0,  5.0,  5.0,  5.0 };
         final double[] crusherUnload50t = { 4.0,  8.0,  4.0,  4.0,  4.0 };
         final double[] excavatorLoad20t = { 5.0,  5.0,  2.5,  5.0,  5.0 };
@@ -39,7 +37,6 @@ public class VerifyModel {
                 File runDir = new File(runDirName);
                 if (!runDir.exists()) runDir.mkdir();
 
-                // Ініціалізація мережі з параметрами поточного набору
                 ExcavatorCrusherNet systemNet = new ExcavatorCrusherNet(
                         crusherUnload20t[setIdx], crusherUnload50t[setIdx], 
                         excavatorLoad20t[setIdx], extraTrucks50t[setIdx], priority50t[setIdx]
@@ -67,7 +64,6 @@ public class VerifyModel {
         try (PrintWriter statsWriter = new PrintWriter(new FileWriter(dirName + "simulation_stats.csv"));
              PrintWriter waitWriter = new PrintWriter(new FileWriter(dirName + "wait_times.csv"))) {
 
-            // Розширені колонки для всіх екскаваторів (з колонкою Run)
             statsWriter.println("Run,Time,Crusher Utilization,Average Crusher Queue," +
                     "Excavator 1 Utilization,Excavator 1 Average Queue," +
                     "Excavator 2 Utilization,Excavator 2 Average Queue," +
@@ -77,7 +73,6 @@ public class VerifyModel {
             double[] nextLogTime = { 0.0 };
 
             sim.go(simulationTime, (time) -> {
-                // --- Відстеження індивідуального часу очікування (FIFO гістограми) ---
                 for (int i = 0; i < 6; i++) {
                     int currentMark = systemNet.waitCrusherPlaces.get(i).getMark();
                     if (currentMark > prevMarks[i]) {
@@ -88,7 +83,6 @@ public class VerifyModel {
                                 double arrivalTime = waitQueues[i].poll();
                                 double waitTime = time - arrivalTime;
                                 int truckType = (i % 2 == 0) ? 20 : 50;
-                                // Додано вивід номера прогону (runIdx)
                                 waitWriter.printf(Locale.US, "%d,%.2f,%d,%.4f%n", runIdx, time, truckType, waitTime);
                             }
                         }
@@ -96,28 +90,25 @@ public class VerifyModel {
                     prevMarks[i] = currentMark;
                 }
 
-                // --- Збір миттєвої статистики кожні logInterval одиниць часу ---
                 if (time >= nextLogTime[0]) { 
-                    // Дробівка (якщо 0 маркерів у freeCrusher, значить вона завантажена = 1.0)
                     double crusherUtil = systemNet.freeCrusher.getMark() == 0 ? 1.0 : 0.0;
                     double crusherQueue = 0.0;
                     for (PetriP p : systemNet.waitCrusherPlaces) {
-                        crusherQueue += p.getMark(); // Миттєва кількість машин у черзі
+                        crusherQueue += p.getMark();
                     }
 
-                    // Екскаватор 1 (Індекси черг: 0 та 1)
                     double exc1Util = systemNet.freeExcavators.get(0).getMark() == 0 ? 1.0 : 0.0;
-                    double exc1Queue = systemNet.waitExcavatorPlaces.get(0).getMark() + systemNet.waitExcavatorPlaces.get(1).getMark();
+                    double exc1Queue = systemNet.waitExcavatorPlaces.get(0).getMark() 
+                        + systemNet.waitExcavatorPlaces.get(1).getMark();
 
-                    // Екскаватор 2 (Індекси черг: 2 та 3)
                     double exc2Util = systemNet.freeExcavators.get(1).getMark() == 0 ? 1.0 : 0.0;
-                    double exc2Queue = systemNet.waitExcavatorPlaces.get(2).getMark() + systemNet.waitExcavatorPlaces.get(3).getMark();
+                    double exc2Queue = systemNet.waitExcavatorPlaces.get(2).getMark() 
+                        + systemNet.waitExcavatorPlaces.get(3).getMark();
 
-                    // Екскаватор 3 (Індекси черг: 4 та 5)
                     double exc3Util = systemNet.freeExcavators.get(2).getMark() == 0 ? 1.0 : 0.0;
-                    double exc3Queue = systemNet.waitExcavatorPlaces.get(4).getMark() + systemNet.waitExcavatorPlaces.get(5).getMark();
+                    double exc3Queue = systemNet.waitExcavatorPlaces.get(4).getMark() 
+                        + systemNet.waitExcavatorPlaces.get(5).getMark();
 
-                    // Запис розширеного рядка статистики
                     statsWriter.printf(Locale.US, "%d,%.2f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f%n",
                             runIdx, time, crusherUtil, crusherQueue, 
                             exc1Util, exc1Queue, exc2Util, exc2Queue, exc3Util, exc3Queue);
