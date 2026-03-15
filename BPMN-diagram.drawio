@@ -1,0 +1,206 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram name="Page-1" id="2a216829-ef6e-dabb-86c1-c78162f3ba2b">
+    <mxGraphModel dx="1107" dy="1848" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-13" parent="1" style="swimlane;html=1;startSize=30;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=1;swimlaneFillColor=#ffffff;strokeWidth=2;whiteSpace=wrap;container=0;" value="Дробівка" vertex="1">
+          <mxGeometry height="370" width="870" x="150" y="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-15" parent="1" style="swimlane;html=1;startSize=30;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=1;swimlaneFillColor=#ffffff;strokeWidth=2;whiteSpace=wrap;container=0;" value="Транспортна мережа / Дорога" vertex="1">
+          <mxGeometry height="130" width="870" x="150" y="-160" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-14" parent="1" style="swimlane;html=1;startSize=30;fontStyle=0;collapsible=0;horizontal=0;swimlaneLine=1;swimlaneFillColor=#ffffff;strokeWidth=2;whiteSpace=wrap;container=0;" value="Екскаватори" vertex="1">
+          <mxGeometry height="290" width="870" x="150" y="-450" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-30" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395" y="-190" />
+              <mxPoint x="500" y="-190" />
+              <mxPoint x="500" y="-245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-22" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=0;expand=0;collapsible=0;taskMarker=abstract;" value="Додати в чергу до екскаватора (FIFO)" vertex="1">
+          <mxGeometry height="80" width="120" x="335" y="-285" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-27" parent="1" style="shape=datastore;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="Черга&amp;nbsp;&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;FIFO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="70" x="525" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-37" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-34" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Захопити екскаватор" vertex="1">
+          <mxGeometry height="80" width="120" x="500" y="-410" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-16" parent="1" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=general;container=0;" value="Прибуття вантажівки" vertex="1">
+          <mxGeometry height="50" width="50" x="225" y="-395" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-19" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="-370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-21" parent="1" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;container=0;" value="Чи вільний екскаватор?" vertex="1">
+          <mxGeometry height="50" width="50" x="370" y="-395" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-26" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-22" value="Ні">
+          <mxGeometry relative="1" x="0.25" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-33" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="-245" />
+              <mxPoint x="470" y="-357" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-35" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-34" value="Так">
+          <mxGeometry relative="1" y="10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-36" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Вантаження руди" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="-410" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-38" parent="1" style="html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;" value="Експоненціальний&amp;nbsp;&lt;div&gt;розподіл&amp;nbsp;&lt;div&gt;5 хв або 10 хв&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="50" x="830" y="-420" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-66" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-71" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="-120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-39" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Звільнити екскаватор" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="-285" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-40" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="-320" />
+              <mxPoint x="770" y="-320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-41" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="-245" />
+              <mxPoint x="1000" y="-430" />
+              <mxPoint x="395" y="-430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-42" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Переїзд до дробівки" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-43" parent="1" style="html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;" value="Постійний час&amp;nbsp;&lt;div&gt;2.5 або 3 хв&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="55" x="830" y="-150" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-44" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-53" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-52" value="Так">
+          <mxGeometry relative="1" x="-0.125" y="-15" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-45" parent="1" style="points=[[0.25,0.25,0],[0.5,0,0],[0.75,0.25,0],[1,0.5,0],[0.75,0.75,0],[0.5,1,0],[0.25,0.75,0],[0,0.5,0]];shape=mxgraph.bpmn.gateway2;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=rhombusPerimeter;outlineConnect=0;outline=none;symbol=none;container=0;" value="Чи вільна дробівка?" vertex="1">
+          <mxGeometry height="50" width="50" x="745" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-48" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-46" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Додати в чергу до дробівки" vertex="1">
+          <mxGeometry height="80" width="120" x="710" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-47" parent="1" style="shape=datastore;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" value="Пріоритетна черга&amp;nbsp;&lt;div&gt;&lt;span style=&quot;text-wrap-mode: wrap;&quot;&gt;(50т &amp;gt; 20т)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="70" x="640" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-49" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-50" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-51" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-46" value="Ні">
+          <mxGeometry relative="1" y="-10" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-52" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Захопити дробівку" vertex="1">
+          <mxGeometry height="80" width="120" x="545" y="-15" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-54" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Розвантаження" vertex="1">
+          <mxGeometry height="80" width="120" x="360" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-55" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-56" parent="1" style="html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;rotation=0;" value="Експоненціальний&amp;nbsp;&lt;div&gt;розподіл&lt;div&gt;5 хв або 4 хв&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="55" x="480" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-57" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="675" y="100" />
+              <mxPoint x="605" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-59" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-68">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-58" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="Звільнити дробівку" vertex="1">
+          <mxGeometry height="80" width="120" x="190" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-60" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-61" parent="1" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task2;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" value="&#xa;Повернення до екскаватора&#xa;&#xa;" vertex="1">
+          <mxGeometry height="80" width="120" x="190" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-62" parent="1" style="html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;rotation=0;" value="Постійний час&amp;nbsp;&lt;div&gt;1.5 або 2 хв&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="55" x="310" y="-150" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-63" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-67" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="250" y="-280" />
+              <mxPoint x="320" y="-280" />
+              <mxPoint x="320" y="-357" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-69" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-68" parent="1" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=message;" value="Повідомлення про звільнення дробівки" vertex="1">
+          <mxGeometry height="50" width="50" x="430" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-70" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" target="w9dBAVq7iHCPoccq6HS5-45">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="150" />
+              <mxPoint x="850" y="38" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-72" edge="1" parent="1" source="w9dBAVq7iHCPoccq6HS5-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" target="w9dBAVq7iHCPoccq6HS5-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w9dBAVq7iHCPoccq6HS5-71" parent="1" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=standard;symbol=message;" value="Повідомлення&amp;nbsp;&lt;div&gt;про звільнення&amp;nbsp;&lt;/div&gt;&lt;div&gt;екскаватора&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="50" x="625" y="-270" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

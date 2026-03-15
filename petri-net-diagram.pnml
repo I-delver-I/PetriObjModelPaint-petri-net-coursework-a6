@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="Untitled" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <name>
+      <text>Untitled</text>
+    </name>
+    <page id="page1">
+      <place id="p-p1-2610180e">
+        <name>
+          <text>Free excavator 1</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="158.0" y="180.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="158" y="180"/>
+        </graphics>
+      </place>
+      <place id="p-p4-aa8204b4">
+        <name>
+          <text>Free crusher</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1239.0" y="612.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="1239" y="612"/>
+        </graphics>
+      </place>
+      <place id="p-p5-6e2d7033">
+        <name>
+          <text>Wait excavator 1 20t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="158.0" y="50.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="158" y="50"/>
+        </graphics>
+      </place>
+      <place id="p-p6-c2e38420">
+        <name>
+          <text>Transit to crusher from excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="530.0" y="118.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="530" y="118"/>
+        </graphics>
+      </place>
+      <place id="p-p7-f02e6016">
+        <name>
+          <text>Wait from excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="999.0" y="120.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="999" y="120"/>
+        </graphics>
+      </place>
+      <place id="p-p8-80b97476">
+        <name>
+          <text>Transit to excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="955.0" y="54.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="955" y="54"/>
+        </graphics>
+      </place>
+      <place id="p-wait-excavator-1-20t-071ba9ac">
+        <name>
+          <text>Wait excavator 1 50t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="156.0" y="340.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="156" y="340"/>
+        </graphics>
+      </place>
+      <place id="p-p1-97eb8d8f">
+        <name>
+          <text>Transit to crusher from excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="532.0" y="234.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="532" y="234"/>
+        </graphics>
+      </place>
+      <place id="p-p2-ea1b9def">
+        <name>
+          <text>Wait from excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1000.0" y="235.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="1000" y="235"/>
+        </graphics>
+      </place>
+      <place id="p-p3-a7e775e9">
+        <name>
+          <text>Transit to excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="952.0" y="340.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="952" y="340"/>
+        </graphics>
+      </place>
+      <place id="p-wait-from-excavator--a534cec7">
+        <name>
+          <text>Wait from excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="997.0" y="647.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="997" y="647"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-excavator-ceede8b8">
+        <name>
+          <text>Transit to excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="949.0" y="752.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="949" y="752"/>
+        </graphics>
+      </place>
+      <place id="p-free-excavator-1-288ba0ca">
+        <name>
+          <text>Free excavator 2</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="155.0" y="592.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="155" y="592"/>
+        </graphics>
+      </place>
+      <place id="p-wait-excavator-1-50t-c6c2d2fd">
+        <name>
+          <text>Wait excavator 2 50t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="153.0" y="752.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="153" y="752"/>
+        </graphics>
+      </place>
+      <place id="p-wait-from-excavator--1600726a">
+        <name>
+          <text>Wait from excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="996.0" y="532.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="996" y="532"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-crusher-f-b0827e61">
+        <name>
+          <text>Transit to crusher from excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="527.0" y="530.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="527" y="530"/>
+        </graphics>
+      </place>
+      <place id="p-wait-excavator-1-20t-c2b091ff">
+        <name>
+          <text>Wait excavator 2 20t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="156.0" y="470.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="156" y="470"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-crusher-f-c0c9d4e3">
+        <name>
+          <text>Transit to crusher from excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="546.0" y="652.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="546" y="652"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-excavator-2ea04f31">
+        <name>
+          <text>Transit to excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="948.0" y="472.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="948" y="472"/>
+        </graphics>
+      </place>
+      <place id="p-free-excavator-1-e043f3a9">
+        <name>
+          <text>Free excavator 3</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="153.0" y="1002.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="153" y="1002"/>
+        </graphics>
+      </place>
+      <place id="p-wait-excavator-1-50t-04765af2">
+        <name>
+          <text>Wait excavator 3 50t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="151.0" y="1162.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="151" y="1162"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-crusher-f-7e1381bb">
+        <name>
+          <text>Transit to crusher from excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="525.0" y="940.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="525" y="940"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-crusher-f-8d945d67">
+        <name>
+          <text>Transit to crusher from excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="562.0" y="1058.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="562" y="1058"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-excavator-158cc676">
+        <name>
+          <text>Transit to excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="947.0" y="1162.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="947" y="1162"/>
+        </graphics>
+      </place>
+      <place id="p-transit-to-excavator-dd78b084">
+        <name>
+          <text>Transit to excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="946.0" y="882.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="946" y="882"/>
+        </graphics>
+      </place>
+      <place id="p-wait-excavator-1-20t-378d8a64">
+        <name>
+          <text>Wait excavator 3 20t</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="154.0" y="880.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="154" y="880"/>
+        </graphics>
+      </place>
+      <place id="p-wait-from-excavator--914d315c">
+        <name>
+          <text>Wait from excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="994.0" y="942.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="994" y="942"/>
+        </graphics>
+      </place>
+      <place id="p-wait-from-excavator--bf050d38">
+        <name>
+          <text>Wait from excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="995.0" y="1057.0"/>
+        </toolspecific>
+        <graphics>
+          <position x="995" y="1057"/>
+        </graphics>
+      </place>
+      <transition id="t-t1-3da009b1">
+        <name>
+          <text>Load from excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="317.0" y="120.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="317" y="120"/>
+        </graphics>
+      </transition>
+      <transition id="t-t2-d0a0c324">
+        <name>
+          <text>Move to crusher from excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="844.0" y="121.0"/>
+          <timeDelay>2.5</timeDelay>
+          <delayMeanValue>2.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="844" y="121"/>
+        </graphics>
+      </transition>
+      <transition id="t-t3-7a5d52f9">
+        <name>
+          <text>Unload from excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1124.0" y="55.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1124" y="55"/>
+        </graphics>
+      </transition>
+      <transition id="t-t4-11ff2842">
+        <name>
+          <text>Move to excavator 1 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="647.0" y="50.0"/>
+          <timeDelay>1.5</timeDelay>
+          <delayMeanValue>1.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="647" y="50"/>
+        </graphics>
+      </transition>
+      <transition id="t-load-excavator-1-20t-cdd3dba9">
+        <name>
+          <text>Load from excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="324.0" y="232.0"/>
+          <timeDelay>10.0</timeDelay>
+          <delayMeanValue>10.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="324" y="232"/>
+        </graphics>
+      </transition>
+      <transition id="t-t1-5c6446d3">
+        <name>
+          <text>Move to crusher from excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="843.0" y="235.0"/>
+          <timeDelay>3.0</timeDelay>
+          <delayMeanValue>3.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="843" y="235"/>
+        </graphics>
+      </transition>
+      <transition id="t-t2-36a89c1c">
+        <name>
+          <text>Unload from excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1112.0" y="339.0"/>
+          <timeDelay>4.0</timeDelay>
+          <delayMeanValue>4.0</delayMeanValue>
+          <priority>1</priority>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1112" y="339"/>
+        </graphics>
+      </transition>
+      <transition id="t-t3-14db34d6">
+        <name>
+          <text>Move to excavator 1 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="642.0" y="341.0"/>
+          <timeDelay>2.0</timeDelay>
+          <delayMeanValue>2.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="642" y="341"/>
+        </graphics>
+      </transition>
+      <transition id="t-load-from-excavator--bf0363cd">
+        <name>
+          <text>Load from excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="321.0" y="644.0"/>
+          <timeDelay>10.0</timeDelay>
+          <delayMeanValue>10.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="321" y="644"/>
+        </graphics>
+      </transition>
+      <transition id="t-unload-from-excavato-39e2272f">
+        <name>
+          <text>Unload from excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1111.0" y="472.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1111" y="472"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-crusher-from-b2b33330">
+        <name>
+          <text>Move to crusher from excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="840.0" y="647.0"/>
+          <timeDelay>3.0</timeDelay>
+          <delayMeanValue>3.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="840" y="647"/>
+        </graphics>
+      </transition>
+      <transition id="t-load-from-excavator--a0ea6e1c">
+        <name>
+          <text>Load from excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="314.0" y="532.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="314" y="532"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-crusher-from-5f7ce6c8">
+        <name>
+          <text>Move to crusher from excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="841.0" y="533.0"/>
+          <timeDelay>2.5</timeDelay>
+          <delayMeanValue>2.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="841" y="533"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-excavator-1--32877c9f">
+        <name>
+          <text>Move to excavator 2 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="640.0" y="469.0"/>
+          <timeDelay>1.5</timeDelay>
+          <delayMeanValue>1.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="640" y="469"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-excavator-1--3e00bf35">
+        <name>
+          <text>Move to excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="639.0" y="753.0"/>
+          <timeDelay>2.0</timeDelay>
+          <delayMeanValue>2.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="639" y="753"/>
+        </graphics>
+      </transition>
+      <transition id="t-unload-from-excavato-42df8cce">
+        <name>
+          <text>Unload from excavator 2 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1109.0" y="751.0"/>
+          <timeDelay>4.0</timeDelay>
+          <delayMeanValue>4.0</delayMeanValue>
+          <priority>1</priority>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1109" y="751"/>
+        </graphics>
+      </transition>
+      <transition id="t-load-from-excavator--090aa568">
+        <name>
+          <text>Load from excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="319.0" y="1054.0"/>
+          <timeDelay>10.0</timeDelay>
+          <delayMeanValue>10.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="319" y="1054"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-crusher-from-4d2e4f67">
+        <name>
+          <text>Move to crusher from excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="839.0" y="943.0"/>
+          <timeDelay>2.5</timeDelay>
+          <delayMeanValue>2.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="839" y="943"/>
+        </graphics>
+      </transition>
+      <transition id="t-unload-from-excavato-725a54d4">
+        <name>
+          <text>Unload from excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1107.0" y="1161.0"/>
+          <timeDelay>4.0</timeDelay>
+          <delayMeanValue>4.0</delayMeanValue>
+          <priority>1</priority>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1107" y="1161"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-excavator-1--06d622dd">
+        <name>
+          <text>Move to excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="638.0" y="879.0"/>
+          <timeDelay>1.5</timeDelay>
+          <delayMeanValue>1.5</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="638" y="879"/>
+        </graphics>
+      </transition>
+      <transition id="t-load-from-excavator--c1b46245">
+        <name>
+          <text>Load from excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="312.0" y="942.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="312" y="942"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-crusher-from-aa0f9d28">
+        <name>
+          <text>Move to crusher from excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="838.0" y="1057.0"/>
+          <timeDelay>3.0</timeDelay>
+          <delayMeanValue>3.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="838" y="1057"/>
+        </graphics>
+      </transition>
+      <transition id="t-unload-from-excavato-e150aaff">
+        <name>
+          <text>Unload from excavator 3 20t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="1109.0" y="882.0"/>
+          <timeDelay>5.0</timeDelay>
+          <delayMeanValue>5.0</delayMeanValue>
+          <distribution>exp</distribution>
+        </toolspecific>
+        <graphics>
+          <position x="1109" y="882"/>
+        </graphics>
+      </transition>
+      <transition id="t-move-to-excavator-1--3960af28">
+        <name>
+          <text>Move to excavator 3 50t</text>
+        </name>
+        <toolspecific tool="PetriObjModel" version="1.0">
+          <coordinates x="637.0" y="1163.0"/>
+          <timeDelay>2.0</timeDelay>
+          <delayMeanValue>2.0</delayMeanValue>
+        </toolspecific>
+        <graphics>
+          <position x="637" y="1163"/>
+        </graphics>
+      </transition>
+      <arc id="arc-a94dd161" source="p-p5-6e2d7033" target="t-t1-3da009b1">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-89d61dda" source="p-p1-2610180e" target="t-t1-3da009b1">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-506b46dc" source="p-p6-c2e38420" target="t-t2-d0a0c324">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5c4ee630" source="p-p7-f02e6016" target="t-t3-7a5d52f9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-8b9dc359" source="p-p4-aa8204b4" target="t-t3-7a5d52f9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a23b87eb" source="p-p8-80b97476" target="t-t4-11ff2842">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9d870acb" source="p-p1-2610180e" target="t-load-excavator-1-20t-cdd3dba9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3ff73bc9" source="p-wait-excavator-1-20t-071ba9ac" target="t-load-excavator-1-20t-cdd3dba9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-607a9170" source="p-p1-97eb8d8f" target="t-t1-5c6446d3">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3eb16b45" source="p-p2-ea1b9def" target="t-t2-36a89c1c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-7d274d48" source="p-p4-aa8204b4" target="t-t2-36a89c1c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-dcc7bee8" source="p-p3-a7e775e9" target="t-t3-14db34d6">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-d9ad09d8" source="p-free-excavator-1-288ba0ca" target="t-load-from-excavator--bf0363cd">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-05aa1e7a" source="p-wait-excavator-1-50t-c6c2d2fd" target="t-load-from-excavator--bf0363cd">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9913789b" source="p-wait-from-excavator--1600726a" target="t-unload-from-excavato-39e2272f">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-d1f2a776" source="p-transit-to-crusher-f-c0c9d4e3" target="t-move-to-crusher-from-b2b33330">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6e02dd28" source="p-wait-excavator-1-20t-c2b091ff" target="t-load-from-excavator--a0ea6e1c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9f9546d0" source="p-free-excavator-1-288ba0ca" target="t-load-from-excavator--a0ea6e1c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-91175b3b" source="p-transit-to-crusher-f-b0827e61" target="t-move-to-crusher-from-5f7ce6c8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f4c8c63e" source="p-transit-to-excavator-2ea04f31" target="t-move-to-excavator-1--32877c9f">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-1df8243e" source="p-transit-to-excavator-ceede8b8" target="t-move-to-excavator-1--3e00bf35">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f9d9b645" source="p-wait-from-excavator--a534cec7" target="t-unload-from-excavato-42df8cce">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-2279305c" source="p-free-excavator-1-e043f3a9" target="t-load-from-excavator--090aa568">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-57e7eb04" source="p-wait-excavator-1-50t-04765af2" target="t-load-from-excavator--090aa568">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-391a4625" source="p-transit-to-crusher-f-7e1381bb" target="t-move-to-crusher-from-4d2e4f67">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5c3bb004" source="p-wait-from-excavator--bf050d38" target="t-unload-from-excavato-725a54d4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-fa45e4f2" source="p-transit-to-excavator-dd78b084" target="t-move-to-excavator-1--06d622dd">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-434d27c1" source="p-wait-excavator-1-20t-378d8a64" target="t-load-from-excavator--c1b46245">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-8068973d" source="p-free-excavator-1-e043f3a9" target="t-load-from-excavator--c1b46245">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-fe3e97ad" source="p-transit-to-crusher-f-8d945d67" target="t-move-to-crusher-from-aa0f9d28">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3667c5da" source="p-wait-from-excavator--914d315c" target="t-unload-from-excavato-e150aaff">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ddb6f15a" source="p-transit-to-excavator-158cc676" target="t-move-to-excavator-1--3960af28">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-8d28c08f" source="p-p4-aa8204b4" target="t-unload-from-excavato-39e2272f">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-d4169286" source="p-p4-aa8204b4" target="t-unload-from-excavato-42df8cce">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-cdd67c7e" source="p-p4-aa8204b4" target="t-unload-from-excavato-e150aaff">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6cd18d3a" source="p-p4-aa8204b4" target="t-unload-from-excavato-725a54d4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ff08cd38" source="t-t1-3da009b1" target="p-p1-2610180e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-456ee126" source="t-t1-3da009b1" target="p-p6-c2e38420">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-c0c56fb7" source="t-t2-d0a0c324" target="p-p7-f02e6016">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-cb4919d2" source="t-t3-7a5d52f9" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-b64aba3d" source="t-t3-7a5d52f9" target="p-p8-80b97476">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-67a3423a" source="t-t4-11ff2842" target="p-p5-6e2d7033">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-a8763e77" source="t-load-excavator-1-20t-cdd3dba9" target="p-p1-2610180e">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-77c00a7a" source="t-load-excavator-1-20t-cdd3dba9" target="p-p1-97eb8d8f">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-b3327a94" source="t-t1-5c6446d3" target="p-p2-ea1b9def">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-655788f6" source="t-t2-36a89c1c" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-91ccdbf2" source="t-t2-36a89c1c" target="p-p3-a7e775e9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-cf085e55" source="t-t3-14db34d6" target="p-wait-excavator-1-20t-071ba9ac">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-09329918" source="t-load-from-excavator--bf0363cd" target="p-free-excavator-1-288ba0ca">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ed16df08" source="t-load-from-excavator--bf0363cd" target="p-transit-to-crusher-f-c0c9d4e3">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-c4b9b5b9" source="t-unload-from-excavato-39e2272f" target="p-transit-to-excavator-2ea04f31">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-dd28d992" source="t-move-to-crusher-from-b2b33330" target="p-wait-from-excavator--a534cec7">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-1b74da29" source="t-load-from-excavator--a0ea6e1c" target="p-free-excavator-1-288ba0ca">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-5173cc94" source="t-load-from-excavator--a0ea6e1c" target="p-transit-to-crusher-f-b0827e61">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9efe7ef9" source="t-move-to-crusher-from-5f7ce6c8" target="p-wait-from-excavator--1600726a">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-00e39456" source="t-move-to-excavator-1--32877c9f" target="p-wait-excavator-1-20t-c2b091ff">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-2d917af2" source="t-move-to-excavator-1--3e00bf35" target="p-wait-excavator-1-50t-c6c2d2fd">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-84d7f27c" source="t-unload-from-excavato-42df8cce" target="p-transit-to-excavator-ceede8b8">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-993b9cde" source="t-load-from-excavator--090aa568" target="p-free-excavator-1-e043f3a9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-3bbd7829" source="t-load-from-excavator--090aa568" target="p-transit-to-crusher-f-8d945d67">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-ed631039" source="t-move-to-crusher-from-4d2e4f67" target="p-wait-from-excavator--914d315c">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-c55b41a3" source="t-unload-from-excavato-725a54d4" target="p-transit-to-excavator-158cc676">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-55fa3593" source="t-move-to-excavator-1--06d622dd" target="p-wait-excavator-1-20t-378d8a64">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-b981255c" source="t-load-from-excavator--c1b46245" target="p-free-excavator-1-e043f3a9">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-f7ebcda8" source="t-load-from-excavator--c1b46245" target="p-transit-to-crusher-f-7e1381bb">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-e17792fc" source="t-move-to-crusher-from-aa0f9d28" target="p-wait-from-excavator--bf050d38">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-bfb6f087" source="t-unload-from-excavato-e150aaff" target="p-transit-to-excavator-dd78b084">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-8552938f" source="t-move-to-excavator-1--3960af28" target="p-wait-excavator-1-50t-04765af2">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-9d1067c0" source="t-unload-from-excavato-39e2272f" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-c25e3c25" source="t-unload-from-excavato-42df8cce" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-007ae9c6" source="t-unload-from-excavato-e150aaff" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+      <arc id="arc-6da15644" source="t-unload-from-excavato-725a54d4" target="p-p4-aa8204b4">
+        <inscription>
+          <text>1</text>
+        </inscription>
+      </arc>
+    </page>
+  </net>
+</pnml>
